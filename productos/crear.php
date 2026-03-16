@@ -11,6 +11,7 @@
     <label for="">Stock</label>
     <input type="number" name="stock"><br>
     <button type="submit">Guardar</button>
+    <BUTton type="Summit"></BUTton>
 </form>
 
 <?php 

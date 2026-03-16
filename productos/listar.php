@@ -2,7 +2,7 @@
 
 include("../config/conexion.php");
 
-$sql = "SELECT codigo, nombre, precio, stock FROM productos";
+$sql = "SELECT id_producto, codigo, nombre, precio, stock FROM productos";
 $resultado = $conexion->query($sql);
 
 ?>
@@ -12,10 +12,11 @@ $resultado = $conexion->query($sql);
 
 <table border="1">
 <tr>
-    <th>codigo</th>
+    <th>Código</th>
     <th>Nombre</th>
     <th>Precio</th>
     <th>Stock</th>
+    <th>Acciones</th>
 </tr>
 
 
@@ -25,6 +26,7 @@ $resultado = $conexion->query($sql);
         <td><?= $fila['nombre'] ?></td>
         <td><?= $fila['precio'] ?></td>
         <td><?= $fila['stock'] ?></td>
+        <td><a href="editar.php?id=<?= $fila['id_producto'] ?>">Editar</a></td>
     </tr>
 <?php } 
 
