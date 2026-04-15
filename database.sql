@@ -33,6 +33,13 @@ CREATE TABLE IF NOT EXISTS clientes (
     id_tipo_documento INT NOT NULL 
 );
 
+CREATE TABLE IF NOT EXISTS tipo_documentos(
+    id_tipo_documento INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    abreviatura VARCHAR(40) NOT NULL,
+    id_tipo_documento INT NOT NULL 
+);
+
 CREATE TABLE IF NOT EXISTS productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     codigo VARCHAR(50) NOT NULL,
