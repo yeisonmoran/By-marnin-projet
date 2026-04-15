@@ -9,16 +9,20 @@ if ($_POST) {
     $fecha = $_POST['fecha'];
     $estado = $_POST['estado'];
 
-    // 1. Consultar stock actual
+    
     $consulta = $conexion->query("SELECT stock FROM productos WHERE id_producto = $id_producto");
     $producto = $consulta->fetch_assoc();
 
-    // 2. Validar stock
+
     if ($producto['stock'] >= $cantidad) {
-        // 3. Restar stock
+    
         $nuevo_stock = $producto['stock'] - $cantidad;
         $conexion->query("UPDATE productos SET stock = $nuevo_stock WHERE id_producto = $id_producto");
         
+    
+        $sql_venta = "INSERT INTO ventas (id_producto, cantidad, fecha, estado) VALUES ('$id_producto', '$cantidad', '$fecha', '$estado')";
+        $conexion->query($sql_venta);
+
         $mensaje = "<div class='alert alert-success'>Venta registrada y stock actualizado correctamente.</div>";
     } else {
         $mensaje = "<div class='alert alert-danger'>Error: No hay stock suficiente para esta venta.</div>";

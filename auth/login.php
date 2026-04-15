@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_rol = $usuario['id_rol'];
 
         if ($id_rol == 1) {
-            echo '¡Bienvenido Adminsitrador¡';
+            echo '¡Bienvenido como Adminsitrador¡';
 
         } elseif ($id_rol == 2) {
-            echo '!Ingreso como usuario¡';
+            echo '!Ingreso como Usuario¡';
         } elseif ($id_rol == 3) {
-            echo '!Ingreso como vendedor¡';
+            echo '!Ingreso como Vendedor¡';
         } else {
             echo '!No se reconoce este error¡';
         }

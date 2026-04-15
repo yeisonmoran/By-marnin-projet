@@ -1,8 +1,8 @@
 <?php
 include("../../includes/header.php");
-include('../../config/conexion.php'); // Movimos la conexión arriba
+include('../../config/conexion.php');
 
-$mensaje = ""; // Variable para guardar alertas bonitas
+$mensaje = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     VALUES('$nombre', '$correo', '$telefono', '$numero_documento', '$ciudad', '$id_tipo_documento')";
 
     if ($conexion->query($sql)) {
-        // En vez de hacer un simple "echo", preparamos una alerta verde (success) de Bootstrap
+        
         $mensaje = "<div class='alert alert-success'>Cliente registrado correctamente.</div>";
     } else {
-        // Alerta roja (danger) para errores
+        
         $mensaje = "<div class='alert alert-danger'>Error: " . $conexion->error . "</div>";
     }
 }
@@ -28,30 +28,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <section class="content mt-3">
     <div class="container-fluid">
         
-        <!-- Iniciamos la tarjeta principal de diseño -->
+        
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Registrar Nuevo Cliente</h3>
             </div>
             
             <div class="card-body">
-                <!-- Imprimimos nuestra alerta (si la hay) -->
+                
                 <?= $mensaje ?>
 
                 <form method="POST">
-                    <!-- Usamos un div "row" para dividir el formulario en 2 columnas -->
+                
                     <div class="row">
 
-                        <!-- col-md-6 significa "Ocupa la mitad de la pantalla" -->
+                        
                         <div class="col-md-6 form-group">
                             <label for="nombre">Nombre Completo</label>
-                            <!-- La clase "form-control" es la que le da la apariencia bonita a la caja -->
+                            
                             <input type="text" name="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label for="correo">Correo Electrónico</label>
-                            <!-- Cambié type="text" a type="email" para mayor seguridad -->
+                        
                             <input type="email" name="correo" class="form-control" placeholder="Ej: juan@mail.com" required>
                         </div>
 
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <br>
-                    <!-- El botón con clases "btn btn-primary" para que sea azul y redondeado -->
+                    
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> Guardar Cliente
                     </button>
