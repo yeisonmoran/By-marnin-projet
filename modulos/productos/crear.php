@@ -57,17 +57,17 @@ $categorias = $conexion->query("SELECT * FROM categorias ORDER BY nombre");
           <div class="row">
             <div class="col-md-4 form-group">
               <label><b>Código del producto</b></label>
-              <input type="text" name="codigo" class="form-control" placeholder="Ej: ELEC-001" required>
+              <input type="text" name="codigo" class="form-control" placeholder="M-001" required>
             </div>
             <div class="col-md-8 form-group">
               <label><b>Nombre del producto</b></label>
-              <input type="text" name="nombre" class="form-control" placeholder="Ej: Televisor 50 pulgadas" required>
+              <input type="text" name="nombre" class="form-control" placeholder="Labial" required>
             </div>
             <div class="col-md-4 form-group">
               <label><b>Precio de venta ($)</b></label>
               <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                <input type="number" name="precio" class="form-control" step="0.01" min="0" placeholder="0.00" required>
+                <input type="number" name="precio" class="form-control" step="0.01" min="0" required>
               </div>
             </div>
             <div class="col-md-4 form-group">
