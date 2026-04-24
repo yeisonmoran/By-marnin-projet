@@ -1,14 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_usuario']) || $_SESSION['id_rol'] != 1) {
-    header('Location: /tienda_by_marnin/auth/login.php'); exit;
-}
+
 require_once('../../config/conexion.php');
 
 $id = (int)($_GET['id'] ?? 0);
 
 // No permitir eliminar el propio usuario
-if ($id == $_SESSION['id_usuario']) {
+if ($id === (int)$_SESSION['id_usuario']) {
     header('Location: listar.php?error=self');
     exit;
 }
@@ -21,7 +18,7 @@ if ($id > 0) {
     $total = $chk->get_result()->fetch_assoc()['total'];
 
     if ($total > 0) {
-        header("Location: listar.php?error=fk&nombre=este+usuario&detalle=Tiene+$total+venta(s)+registrada(s).+No+puede+eliminarse+para+no+perder+el+historial.");
+        header("Location: listar.php?error=fk&detalle=El+usuario+tiene+$total+venta(s)+registrada(s).+No+puede+eliminarse+para+conservar+el+historial.");
         exit;
     }
 

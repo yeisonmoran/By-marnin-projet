@@ -1,5 +1,5 @@
 <?php
-
+ob_start(); // Buffer toda la salida para que header() funcione en cualquier momento
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
   header('Location: /tienda_by_marnin/auth/login.php');

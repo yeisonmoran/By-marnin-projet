@@ -42,6 +42,20 @@ $usuarios = $conexion->query("
       </div>
     <?php endif; ?>
 
+    <?php if (isset($_GET['error'])): ?>
+      <div class="alert alert-danger alert-dismissible fade show">
+        <i class="fas fa-exclamation-triangle mr-2"></i>
+        <?php if ($_GET['error'] === 'self'): ?>
+          <b>Acción no permitida.</b> No puedes eliminar tu propio usuario.
+        <?php elseif ($_GET['error'] === 'fk'): ?>
+          <b>No se puede eliminar el usuario.</b> <?= htmlspecialchars($_GET['detalle'] ?? '') ?>
+        <?php elseif ($_GET['error'] === 'db'): ?>
+          Error en la base de datos al intentar eliminar.
+        <?php endif; ?>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    <?php endif; ?>
+
     <div class="card card-primary card-outline">
       <div class="card-header">
         <h3 class="card-title"><i class="fas fa-list mr-2"></i>Lista de Usuarios</h3>

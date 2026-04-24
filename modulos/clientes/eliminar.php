@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_usuario'])) { header('Location: /tienda_by_marnin/auth/login.php'); exit; }
++
 require_once('../../config/conexion.php');
 
 $id = (int)($_GET['id'] ?? 0);
@@ -13,7 +12,7 @@ if ($id > 0) {
     $total = $chk->get_result()->fetch_assoc()['total'];
 
     if ($total > 0) {
-        header("Location: listar.php?error=fk&nombre=este+cliente&detalle=Tiene+$total+venta(s)+en+el+historial.+Elimina+primero+sus+ventas+o+conserva+el+cliente.");
+        header("Location: listar.php?error=fk&detalle=El+cliente+tiene+$total+venta(s)+registrada(s).+No+puede+eliminarse+para+conservar+el+historial.");
         exit;
     }
 

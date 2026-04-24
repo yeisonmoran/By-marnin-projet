@@ -1,22 +1,30 @@
-# By Marnin - Sistema de Gestión de Ventas
+# Diseño e Implementacion de una Aplicacion Web para la Gestión de Ventas de la Tienda de Cosmeticos By Marnin
 
-Diseño e implementación de una aplicación web para la gestión de ventas de la tienda de cosméticos By Marnin
-
-## 🛠️ Tecnologías
+##  Tecnologías
 - PHP (backend y lógica de negocio)
 - MySQL (base de datos)
 - HTML / CSS / JavaScript (frontend)
 - Autenticación con sesiones PHP
+- Xampp: Levantamiento de servicios MySQL y Apache Local.
 
-## 📦 Módulos desarrollados
+##  Módulos desarrollados
 - Autenticación de usuarios
 - Gestión de productos
+- Gestión de categorias
+- Gestion de ventas
 - Inventario
-- Registro de ventas
-- Registro de clientes
+- Gestion de clientes
+- Gestion de usuarios(Administrador)
 
-## 🚀 Estado del proyecto
-En desarrollo activo — versión final estimada para [Mayo/2026]
+## Librerias
+- AdminLTE(Con dependencias)
+
+##  Manual de instalacion
+- Descargar e instalar el programa Xampp
+- Copiar la carpeta del proyecto en la ruta c:/xampp/htdocs/
+- Descargar e instalar el programa mysql Workbench la version mas reciente
+
+    
 
 ## Diagrama ER
 <p align="center">

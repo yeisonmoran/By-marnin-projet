@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_usuario'])) { header('Location: /tienda_by_marnin/auth/login.php'); exit; }
+
 require_once('../../config/conexion.php');
 
 $id = (int)($_GET['id'] ?? 0);
@@ -13,12 +12,10 @@ if ($id > 0) {
     $total = $chk->get_result()->fetch_assoc()['total'];
 
     if ($total > 0) {
-        // No se puede eliminar: tiene productos vinculados
-        header("Location: listar.php?error=fk&nombre=esta+categoría&detalle=Tiene+$total+producto(s)+asociado(s).+Reasígnalos+o+elimínalos+primero.");
+        header("Location: listar.php?error=fk&detalle=La+categoria+tiene+$total+producto(s)+asociado(s).+Reasignalos+o+eliminelos+primero.");
         exit;
     }
 
-    // Sin dependencias: eliminar con seguridad
     $stmt = $conexion->prepare("DELETE FROM categorias WHERE id_categoria = ?");
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
